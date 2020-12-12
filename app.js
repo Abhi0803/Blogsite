@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 mongoose.connect(
-  "mongodb+srv://Red:8268@cluster0.sq4z9.mongodb.net/todolistDB?retryWrites=true&w=majority",
+  "mongodb+srv://Red:8268@cluster0.sq4z9.mongodb.net/blogDB?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
   }
@@ -78,8 +78,6 @@ app.get("/contact", function (req, res) {
   res.render("contact", { contactContent: contactContent });
 });
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
-app.listen(port);
+app.listen(3000, function () {
+  console.log("Server started on port 3000");
+});
